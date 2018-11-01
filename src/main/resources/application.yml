@@ -1,0 +1,24 @@
+logging:
+  level:
+    org.springframework: ERROR
+    com.oracle: DEBUG
+
+app:
+  applicationName: KafkaTool
+  applicationDescription: ${app.applicationName} is a Spring Boot application
+  maxConsumers: 5
+
+spring:
+  profiles:
+    active: "dev"
+
+---
+
+spring:
+  profiles: dev
+
+---
+spring:
+  profiles: prod
+
+
