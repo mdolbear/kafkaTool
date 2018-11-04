@@ -34,7 +34,7 @@ public class ConsumerFactory {
                     LoggerFactory.getLogger(ConsumerFactory.class);
 
             MDC.put(TOPIC_CONSUMER_MDC_KEY, aTopicConsumer);
-            tempLogger.info("Received message: %s\n", r.toString());
+            tempLogger.info("Received message: " + r.value());
 
             r.receiverOffset().acknowledge();
 

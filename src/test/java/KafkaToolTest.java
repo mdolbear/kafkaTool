@@ -24,8 +24,8 @@ public class KafkaToolTest {
     private static final String BOOTSTRAP_SERVERS = "localhost:9092";
     private static final String CLIENT_ID = "clientId";
     private static final String GROUP_ID = "mygroup";
-    private static final String STRING_KEY_CLASS_SHORTNAME = "String";
-    private static final String STRING_VALUE_CLASS_SHORTNAME = "String";
+    private static final String KEY_CLASS_SHORTNAME = "String";
+    private static final String VALUE_CLASS_SHORTNAME = "EventObject";
     private static final String TOPIC_NAME = "game-events";
 
 
@@ -49,8 +49,8 @@ public class KafkaToolTest {
                                    BOOTSTRAP_SERVERS,
                                    CLIENT_ID,
                                    GROUP_ID,
-                                   STRING_KEY_CLASS_SHORTNAME,
-                                   STRING_VALUE_CLASS_SHORTNAME,
+                KEY_CLASS_SHORTNAME,
+                VALUE_CLASS_SHORTNAME,
                                    TOPIC_NAME);
 
 

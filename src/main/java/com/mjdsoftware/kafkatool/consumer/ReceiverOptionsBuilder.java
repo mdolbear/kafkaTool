@@ -62,8 +62,8 @@ public class ReceiverOptionsBuilder<K,V> {
         return this.createReceiverOptions(aBootstrapServers,
                                           aClientId,
                                           aGroupId,
-                                          aDeserializerValueClass,
                                           aDeserializerKeyClass,
+                                          aDeserializerValueClass,
                                           aTopic);
     }
 

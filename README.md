@@ -16,7 +16,7 @@ docker run -d --net=container:pause --ipc=container:pause --pid=container:pause 
 
 Run the following command:
 
-curl -d "name=mysub&bootstrapServers=localhost:9092&clientId=clientId&groupId=mygroup&desKeyClassShortName=String&desValueClassShortName=String&topic=game-events" -X POST http://localhost:8080/kafkatool/subscribe
+curl -d "name=mysub&bootstrapServers=localhost:9092&clientId=clientId&groupId=mygroup&desKeyClassShortName=String&desValueClassShortName=EventObject&topic=game-events" -X POST http://localhost:8080/kafkatool/subscribe
 
 
 This creates a subscription. Now you need to create events on this topic, and you should see some logs from the consumer of the topic. 

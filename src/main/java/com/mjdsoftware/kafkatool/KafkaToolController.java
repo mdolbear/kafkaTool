@@ -23,7 +23,7 @@ public class KafkaToolController {
     private final ConsumerFactory consumerFactory;
 
     @Getter(AccessLevel.PRIVATE)
-    private final ConsumerService<Object, Object> consumerService;
+    private final ConsumerService<String, Object> consumerService;
 
     /**
      * Answer an instance of me for the follwoing arguments
@@ -34,7 +34,7 @@ public class KafkaToolController {
     @Autowired
     public KafkaToolController(DeserializerClassRepository aDeserializers,
                                ConsumerFactory aConsumerFactory,
-                               ConsumerService<Object, Object> aConsumerService) {
+                               ConsumerService<String, Object> aConsumerService) {
 
         super();
         this.deserializers = aDeserializers;
@@ -66,7 +66,7 @@ public class KafkaToolController {
 
         Class<?>                                 tempDeserializerKeyClass;
         Class<?>                                 tempDeserializerValueClass;
-        Consumer<ReceiverRecord<Object, Object>> tempConsumer;
+        Consumer<ReceiverRecord<String, Object>> tempConsumer;
 
         tempDeserializerKeyClass = this.getDeserializerClass(aDeserializerKeyClassShortName);
         tempDeserializerValueClass = this.getDeserializerClass(aDeserializerValueClassShortName);
@@ -102,7 +102,7 @@ public class KafkaToolController {
      * @param aTopicConsumer String
      * @return Consumer
      */
-    private Consumer<ReceiverRecord<Object, Object>> getConsumer(String aType,
+    private Consumer<ReceiverRecord<String, Object>> getConsumer(String aType,
                                                                  @NonNull  String aTopicConsumer) {
 
         return this.getConsumerFactory()

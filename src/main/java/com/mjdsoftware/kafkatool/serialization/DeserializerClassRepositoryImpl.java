@@ -4,8 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.common.serialization.IntegerDeserializer;
-import org.apache.kafka.common.serialization.StringDeserializer;
+import org.apache.kafka.common.serialization.Serdes;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Repository;
 
@@ -43,10 +42,13 @@ public class DeserializerClassRepositoryImpl implements DeserializerClassReposit
     private void initialize() {
 
         this.getClasses().put(String.class.getSimpleName(),
-                              StringDeserializer.class);
+                              Serdes.serdeFrom(String.class).deserializer().getClass());
 
         this.getClasses().put(Integer.class.getSimpleName(),
-                              IntegerDeserializer.class);
+                              Serdes.serdeFrom(Integer.class).deserializer().getClass());
+
+        this.getClasses().put(EventObject.class.getSimpleName(),
+                              EventDeserializer.class);
     }
 
     /**
