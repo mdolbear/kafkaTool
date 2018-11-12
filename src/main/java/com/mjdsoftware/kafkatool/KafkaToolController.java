@@ -89,7 +89,7 @@ public class KafkaToolController {
      * Terminate and remove topic subscriber for aName
      * @param aName String
      */
-    @DeleteMapping("removeSubscriber")
+    @DeleteMapping("/removeSubscriber")
     public void terminateAndRemoveSubscriber(@RequestParam("name") @NonNull String aName) {
 
         this.getConsumerService().terminateAndRemoveSubscriberFor(aName);

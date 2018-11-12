@@ -49,9 +49,12 @@ public class KafkaToolTest {
                                    BOOTSTRAP_SERVERS,
                                    CLIENT_ID,
                                    GROUP_ID,
-                KEY_CLASS_SHORTNAME,
-                VALUE_CLASS_SHORTNAME,
+                                   KEY_CLASS_SHORTNAME,
+                                   VALUE_CLASS_SHORTNAME,
                                    TOPIC_NAME);
+
+        //Remove subscription
+        this.performRemoveSubscription(tempBaseUrl, tempSubscriptionName);
 
 
     }
@@ -69,6 +72,25 @@ public class KafkaToolTest {
      * Subscribe to a topic using the following parameters:
      * @param aBaseUrl String
      * @param aSubscriptionName String
+     * @throws Exception
+     */
+    private void performRemoveSubscription(String aBaseUrl,
+                                           String aSubscriptionName) throws Exception {
+
+
+        RestTemplate                                tempTemplate;
+
+        tempTemplate = new RestTemplate();
+        tempTemplate.delete(aBaseUrl + "/removeSubscriber?name="+aSubscriptionName);
+
+
+    }
+
+
+    /**
+     * Subscribe to a topic using the following parameters:
+     * @param aBaseUrl String
+     * @param aSubscriptionName String
      * @param aBootstrapServers String
      * @param aClientId String
      * @param aGroupId String
@@ -77,7 +99,7 @@ public class KafkaToolTest {
      * @param aTopic String
      * @throws Exception
      */
-    protected void performTopicSubscribe(String aBaseUrl,
+    private void   performTopicSubscribe(String aBaseUrl,
                                          String aSubscriptionName,
                                          String aBootstrapServers,
                                          String aClientId,
@@ -148,5 +170,6 @@ public class KafkaToolTest {
         return tempRequest;
 
     }
+
 
 }
