@@ -2,12 +2,9 @@ package com.mjdsoftware.kafkatool.exceptions;
 
 import org.springframework.http.HttpStatus;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  *
  */
-@XmlRootElement
 public class ErrorMessage {
 
 

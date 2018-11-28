@@ -1,4 +1,4 @@
-FROM anapsix/alpine-java:8
+FROM openjdk:11
 
 ARG PROJECT_NAME
 ARG PROJECT_DESCRIPTION
